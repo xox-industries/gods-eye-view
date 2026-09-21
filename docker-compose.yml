@@ -1,0 +1,28 @@
+name: gods-eye-view
+
+services:
+  api:
+    container_name: gods-eye-view-api
+    image: ${DOCKER_IMAGE_URL}/api:${DOCKER_IMAGE_TAG:-latest}
+
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://127.0.0.1:4173/",
+        ]
+      interval: 30s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+    ports:
+      - 58910:4173
+    restart: always
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4173
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}

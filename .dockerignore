@@ -1,0 +1,34 @@
+# Git metadata
+.git
+.gitignore
+.github
+
+# Local environment and secrets
+.env
+.env.example
+pinokio/ENVIRONMENT
+
+# Documentation and media (not needed at runtime)
+docs/
+*.md
+
+# Node caches and logs
+node_modules/.cache
+npm-debug.log*
+*.log
+
+# Build artifacts and caches
+dist/
+.vite/
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Scripts not used in the container runtime
+scripts/*.sh
+
+# Temporary files
+/tmp
+*.tmp
